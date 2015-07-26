@@ -17,10 +17,10 @@
 # its inverse.
 # For this assignment, assume that the matrix supplied is always invertible.
 
-# matrix operations described here:
+## R matrix operations described here: (specifically "solve()"
 # http://www.statmethods.net/advstats/matrix.html
 
-# some invertable matrix found on-ine:
+# some invertable matrix found on-ine: (I googled it, but don't recall the URL)
 # x = c(2, 3, 1, 5, 1, 0, 3, 1, 0, 2, -3, 2, 0, 2, 3, 1 )
 # m = x1 = matrix(x, nrow=4, ncol=4)
 
@@ -28,7 +28,10 @@
 
 
 ## Creates a matrix object that holds a matrix and has space to store its inverse.
-## The commented out lines are those that were from the original example function for computing the mean of a vector.
+# The commented out lines are those that were removed from the original example
+# function for computing the mean of a vector.
+# That example function can be found here: 
+# https://class.coursera.org/rprog-030/human_grading/view/courses/975104/assessments/3/submissions
 
 # makeVector <- function(x = numeric()) {
 makeCacheMatrix <- function(x = numeric()) { 
@@ -48,7 +51,10 @@ makeCacheMatrix <- function(x = numeric()) {
 
 
 ## Returns the inverse of x by either computing it or by finding it in the cached version of the matrix
-## The commented out lines are those that were from the original example function for computing the mean of a vector.
+# The commented out lines are those that were removed from the original example
+# function for computing the mean of a vector.
+# That example function can be found here:
+# https://class.coursera.org/rprog-030/human_grading/view/courses/975104/assessments/3/submissions
 
 # cachemean <- function(x, ...) {
 cachesolve <- function(x, ...) {
@@ -60,7 +66,8 @@ cachesolve <- function(x, ...) {
     }
     data <- x$get()
     # m <- mean(data, ...)
-    m <- solve(data)
+    m <- solve(data) ## THis line breaks if you include the ", ...)" from the mean function,
+    # which seems odd since there is an elipsis argument to that function in the help files. 
     x$setInverse(m)
     m
 }
